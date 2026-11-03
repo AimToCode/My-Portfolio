@@ -64,7 +64,7 @@ const TechStack = () => {
             >
               <div className="tech-card-animated-bg" />
               <div className="tech-card-content">
-                <div className="tech-icon-wrapper">
+                <div className="tech-icon-wrapper pointer-events-none md:pointer-events-auto">
                   <TechIconCardExperience model={techStackIcon} />
                 </div>
                 <div className="padding-x w-full text-center">

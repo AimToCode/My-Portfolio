@@ -77,7 +77,7 @@ const Hero = () => {
 
         {/* RIGHT: 3D Model Visual */}
         <figure>
-          <div className="hero-3d-layout">
+          <div className="hero-3d-layout pointer-events-none md:pointer-events-auto">
             <HeroExperience />
           </div>
         </figure>

@@ -1,9 +1,12 @@
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
+import { useMediaQuery } from "react-responsive";
 
 import Computer from "./Computer";
 
 const ContactExperience = () => {
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
+
   return (
     <Canvas shadows camera={{ position: [0, 3, 7], fov: 45 }}>
       <ambientLight intensity={0.5} color="#fff4e6" />
@@ -19,6 +22,9 @@ const ContactExperience = () => {
 
       <OrbitControls
         enableZoom={false}
+        enableRotate={!isMobile}
+        autoRotate={isMobile}
+        autoRotateSpeed={1.0}
         minPolarAngle={Math.PI / 5}
         maxPolarAngle={Math.PI / 2}
       />

@@ -163,9 +163,12 @@ const Contact = () => {
           </div>
 
           <div className="xl:col-span-7 min-h-[420px] h-full flex flex-col">
-            <div className="bg-[#cd7c2e] w-full h-full hover:cursor-grab rounded-3xl overflow-hidden shadow-2xl relative">
-              <div className="absolute top-4 left-4 z-10 px-3 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-white text-xs font-mono">
+            <div className="bg-[#cd7c2e] w-full h-full md:hover:cursor-grab rounded-3xl overflow-hidden shadow-2xl relative pointer-events-none md:pointer-events-auto">
+              <div className="absolute top-4 left-4 z-10 px-3 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-white text-xs font-mono hidden md:block">
                 🖱️ Drag to rotate 3D desk
+              </div>
+              <div className="absolute top-4 left-4 z-10 px-3 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-white text-xs font-mono md:hidden">
+                ✨ 3D Desk
               </div>
               <ContactExperience />
             </div>

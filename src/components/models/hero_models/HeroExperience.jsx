@@ -15,10 +15,13 @@ const HeroExperience = () => {
     <Canvas camera={{ position: [0, 0, 15], fov: 45 }}>
       {/* deep blue ambient */}
       <ambientLight intensity={0.2} color="#1a1a40" />
-      {/* Configure OrbitControls to disable panning and control zoom based on device type */}
+      {/* Configure OrbitControls: on mobile auto-rotate gently and free touch scroll; on desktop enable manual controls */}
       <OrbitControls
         enablePan={false} // Prevents panning of the scene
         enableZoom={!isTablet} // Disables zoom on tablets
+        enableRotate={!isMobile} // Disables touch rotation on mobile so page scroll is uninterrupted
+        autoRotate={isMobile} // Cinematic gentle rotation on mobile
+        autoRotateSpeed={1.0} // Smooth rotation speed
         maxDistance={20} // Maximum distance for zooming out
         minDistance={5} // Minimum distance for zooming in
         minPolarAngle={Math.PI / 5} // Minimum angle for vertical rotation
