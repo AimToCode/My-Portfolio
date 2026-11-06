@@ -3,8 +3,10 @@ import emailjs from "@emailjs/browser";
 
 import TitleHeader from "../components/TitleHeader";
 import ContactExperience from "../components/models/contact/ContactExperience";
+import useInView from "../hooks/useInView";
 
 const Contact = () => {
+  const [contactRef, isContactInView] = useInView({ threshold: 0.05, rootMargin: "150px" });
   const formRef = useRef(null);
   const [loading, setLoading] = useState(false);
   const [statusMessage, setStatusMessage] = useState({ text: "", type: "" });
@@ -66,7 +68,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="flex-center section-padding">
+    <section id="contact" ref={contactRef} className="flex-center section-padding">
       <div className="w-full h-full md:px-10 px-5 max-w-7xl mx-auto">
         <TitleHeader
           title="Get in Touch – Let’s Build Together"
@@ -170,7 +172,7 @@ const Contact = () => {
               <div className="absolute top-4 left-4 z-10 px-3 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-white text-xs font-mono md:hidden">
                 ✨ 3D Desk
               </div>
-              <ContactExperience />
+              <ContactExperience isInView={isContactInView} />
             </div>
           </div>
         </div>

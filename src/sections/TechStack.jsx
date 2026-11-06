@@ -4,6 +4,7 @@ import gsap from "gsap";
 import TitleHeader from "../components/TitleHeader";
 import TechIconCardExperience from "../components/models/tech_logos/TechIconCardExperience";
 import { techStackIcons } from "../constants";
+import useInView from "../hooks/useInView";
 
 const skillCategories = [
   {
@@ -29,6 +30,8 @@ const skillCategories = [
 ];
 
 const TechStack = () => {
+  const [techRef, isTechInView] = useInView({ threshold: 0.05, rootMargin: "150px" });
+
   useGSAP(() => {
     gsap.fromTo(
       ".tech-card",
@@ -48,7 +51,7 @@ const TechStack = () => {
   });
 
   return (
-    <div id="skills" className="flex-center section-padding">
+    <div id="skills" ref={techRef} className="flex-center section-padding">
       <div className="w-full h-full md:px-10 px-5 max-w-7xl mx-auto">
         <TitleHeader
           title="Skills & Technologies"
@@ -65,7 +68,7 @@ const TechStack = () => {
               <div className="tech-card-animated-bg" />
               <div className="tech-card-content">
                 <div className="tech-icon-wrapper pointer-events-none md:pointer-events-auto">
-                  <TechIconCardExperience model={techStackIcon} />
+                  <TechIconCardExperience model={techStackIcon} isInView={isTechInView} />
                 </div>
                 <div className="padding-x w-full text-center">
                   <p className="font-semibold text-white tracking-wide">{techStackIcon.name}</p>

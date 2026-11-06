@@ -5,8 +5,11 @@ import AnimatedCounter from "../components/AnimatedCounter";
 import Button from "../components/Button";
 import { words } from "../constants";
 import HeroExperience from "../components/models/hero_models/HeroExperience";
+import useInView from "../hooks/useInView";
 
 const Hero = () => {
+  const [heroRef, isHeroInView] = useInView({ threshold: 0.05, rootMargin: "150px" });
+
   useGSAP(() => {
     gsap.fromTo(
       ".hero-text h1",
@@ -16,7 +19,7 @@ const Hero = () => {
   });
 
   return (
-    <section id="hero" className="relative overflow-hidden">
+    <section id="hero" ref={heroRef} className="relative overflow-hidden">
       <div className="absolute top-0 left-0 z-10 pointer-events-none">
         <img src="/images/bg.png" alt="" />
       </div>
@@ -78,7 +81,7 @@ const Hero = () => {
         {/* RIGHT: 3D Model Visual */}
         <figure>
           <div className="hero-3d-layout pointer-events-none md:pointer-events-auto">
-            <HeroExperience />
+            <HeroExperience isInView={isHeroInView} />
           </div>
         </figure>
       </div>
