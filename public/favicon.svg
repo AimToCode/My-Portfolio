@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d" />
+      <stop offset="100%" stop-color="#030712" />
+    </linearGradient>
+
+    <!-- Cyan to Electric Blue Gradient for LK Monogram -->
+    <linearGradient id="cyanBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee" />
+      <stop offset="50%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+
+    <!-- Glowing Border Gradient -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#3b82f6" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.6" />
+    </linearGradient>
+
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Rounded Squircle Base -->
+  <rect x="24" y="24" width="464" height="464" rx="120" fill="url(#bgGrad)" stroke="url(#borderGrad)" stroke-width="12" />
+
+  <!-- Inner Soft Tech Radial Glow -->
+  <circle cx="256" cy="256" r="160" fill="#06b6d4" opacity="0.1" filter="url(#glow)" />
+
+  <!-- Modern Geometric Monogram "LK" -->
+  <g fill="none" stroke="url(#cyanBlue)" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)">
+    <!-- Letter L -->
+    <path d="M 148 156 V 348 H 224" stroke-width="44" />
+
+    <!-- Letter K -->
+    <path d="M 276 156 V 348" stroke-width="44" />
+    <path d="M 374 156 L 284 256 L 378 348" stroke-width="44" />
+
+    <!-- Code / Aim Target Dot -->
+    <circle cx="406" cy="348" r="14" fill="#22d3ee" stroke="none" />
+  </g>
+</svg>
